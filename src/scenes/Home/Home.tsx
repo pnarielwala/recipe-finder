@@ -21,7 +21,7 @@ const Home = () => {
   });
 
   const { data: meals } = useQuery('recipe-random', () => getRandom5Meal(), {
-    staleTime: Infinity,
+    // staleTime: Infinity,
     cacheTime: Infinity,
   });
 
@@ -111,8 +111,11 @@ const Home = () => {
 
       <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
         {mealsToShow?.map((meal) => (
-          <Box sx={{ width: ['100%', null, '33.33%'], p: [0, null, 2] }}>
-            <MealCard key={meal.idMeal} meal={meal} />
+          <Box
+            key={meal.idMeal}
+            sx={{ width: ['100%', null, '33.33%'], p: [0, null, 2] }}
+          >
+            <MealCard meal={meal} />
           </Box>
         ))}
       </Box>
