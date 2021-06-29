@@ -8,6 +8,16 @@ import { faArrowLeft, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Link from 'components/Link';
 import { MealT } from 'types/Meal';
 
+// workaround for mobile caching but keeping the local stored data after meals have been fetched
+// (ie with navigating to a recipe and then coming back to home without refreshing)
+const randomIds = [
+  Math.floor(Math.random() * 9999),
+  Math.floor(Math.random() * 9999),
+  Math.floor(Math.random() * 9999),
+  Math.floor(Math.random() * 9999),
+  Math.floor(Math.random() * 9999),
+];
+
 const Home = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchValue, setSearchValue] = useState('');
@@ -20,10 +30,14 @@ const Home = () => {
     return favorites;
   });
 
-  const { data: meals } = useQuery('recipe-random', () => getRandom5Meal(), {
-    // staleTime: Infinity,
-    cacheTime: Infinity,
-  });
+  const { data: meals } = useQuery(
+    ['recipe-random', ...randomIds],
+    () => getRandom5Meal(randomIds),
+    {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+    },
+  );
 
   const { data: searchResults, isLoading } = useQuery(
     'recipe-search-' + searchValue,

@@ -32,3 +32,12 @@ We would prefer you spent as much time focusing on performance and accessibility
   - The heart icon should 'favorite' this recipe
   - Store this data in the users browser
 - If any favorited recipes are detected in the browser, add a button on the home page that shows a list of these recipes
+
+---
+
+#### If I hade more time, I would...
+
+- Write unit tests
+- Component-ize some parts of the code
+- Improve UI/Responsiveness
+- Have the "random" recipes persist throughout the day and refresh the next day so it's truly "daily recipes"

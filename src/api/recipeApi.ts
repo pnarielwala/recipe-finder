@@ -5,19 +5,21 @@ const xhr = axios.create({
   baseURL: 'https://www.themealdb.com/api/json/v1/1',
 });
 export const getRandomMeal = () => xhr.get('/random.php');
-export const getRandom5Meal = async (): Promise<Array<MealT>> => {
+export const getRandom5Meal = async (
+  randomIds: Array<number>,
+): Promise<Array<MealT>> => {
   // on mobile the requests are cached so the same meal appears 5 times
-  const preventCacheOptions = () => ({
+  const preventCacheOptions = (value: number) => ({
     params: {
-      random: Math.floor(Math.random() * 9999),
+      random: value,
     },
   });
   const datas = await Promise.all([
-    xhr.get('/random.php', preventCacheOptions()),
-    xhr.get('/random.php', preventCacheOptions()),
-    xhr.get('/random.php', preventCacheOptions()),
-    xhr.get('/random.php', preventCacheOptions()),
-    xhr.get('/random.php', preventCacheOptions()),
+    xhr.get('/random.php', preventCacheOptions(randomIds[0])),
+    xhr.get('/random.php', preventCacheOptions(randomIds[1])),
+    xhr.get('/random.php', preventCacheOptions(randomIds[2])),
+    xhr.get('/random.php', preventCacheOptions(randomIds[3])),
+    xhr.get('/random.php', preventCacheOptions(randomIds[4])),
   ]);
   return datas.map((data) => data.data.meals[0]);
 };
