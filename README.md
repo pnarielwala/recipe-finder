@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+#Recipe Finder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Overview
 
-## Available Scripts
+Create an app using React and [React Hooks](https://reactjs.org/docs/hooks-intro.html) that will be a recipe finder.
 
-In the project directory, you can run:
+- Use [fontawesome](http://fontawesome.io/icons/) for any icon needs and [axios](https://github.com/axios/axios) for any http requests.
+- Spend, at max, 4 hours on this project
+- Prefer to see effective use of state management, thoughtfulness in component building and focus on performance, responsiveness and accessibility best practices over styling if you are running out of time
 
-### `yarn start`
+### Requirements
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Integrate with "TheMealDB" API http://www.themealdb.com/api.php
+- The main page will display 5 random recipes as 'Recipes of the Day'
+- Mobile designs are provided, get creative with responsive desktop designs
+- Use a css preprocessor
+- Clicking on a recipe should open a detail page about the recipe
+  - The URL should change (consider using [react-router](https://github.com/ReactTraining/react-router)) when a recipe is clicked
+  - If a user copy/pastes the URL into a new window, the same recipe detail page should display
+  - Detail page should show the ingredients and instructions for that recipe
+- There should be a search bar allowing users to search for a recipe
+  - Search button on mobile in the bottom right corner of the screen - which should open a search window with the keyboard
+- The search results will be displayed where the random recipes were displayed
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Bonus (optional)
 
-### `yarn test`
+We would prefer you spent as much time focusing on performance and accessibility as possible, but if you finish early here are some options for "bonus points".
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add a share button on the modal page to "Tweet" the recipe
+- The results should be paginated with 5 results displaying at a time
+- Add a 'Heart' icon in the modal for a recipe
+  - The heart icon should 'favorite' this recipe
+  - Store this data in the users browser
+- If any favorited recipes are detected in the browser, add a button on the home page that shows a list of these recipes
